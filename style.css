@@ -1983,3 +1983,102 @@ body {
     opacity: 1;
   }
 }
+
+.love-message {
+  position: fixed;
+  z-index: 300;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(22px, env(safe-area-inset-bottom));
+  left: max(16px, env(safe-area-inset-left));
+  width: fit-content;
+  max-width: min(88vw, 560px);
+  margin: 0 auto;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(15, 20, 35, 0.72);
+  color: #fff;
+  font: 600 clamp(0.95rem, 2.7vw, 1.3rem) / 1.35 Arial, sans-serif;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.love-message.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.music-controls {
+  position: fixed;
+  z-index: 400;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+  max-width: min(90vw, 290px);
+  font-family: Arial, sans-serif;
+  text-align: right;
+}
+
+.music-toggle {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(15, 20, 35, 0.78);
+  color: #fff;
+  font: 600 0.95rem / 1.2 Arial, sans-serif;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.music-toggle:focus-visible {
+  outline: 3px solid #ffd700;
+  outline-offset: 3px;
+}
+
+.music-status {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(15, 20, 35, 0.64);
+  color: #fff;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 600px) {
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .flowers {
+    transform: scale(0.68);
+    transform-origin: center bottom;
+  }
+
+  .music-controls {
+    max-width: min(84vw, 250px);
+  }
+
+  .music-toggle {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  .love-message {
+    max-width: 90vw;
+    padding: 10px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .love-message {
+    transition: none;
+  }
+}
